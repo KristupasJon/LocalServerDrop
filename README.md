@@ -1,26 +1,13 @@
 # LocalServerDrop
 
-A cross-platform Electron desktop application that will act as a local file sharing server using Express web server, with Multer storage. Share files fast across your local network.
+A crossplatform Electron desktop application that will act as a local file sharing server using Express web server, with Multer storage.
 
 ## What is LocalServerDrop?
 
-LocalServerDrop combines the convenience of a desktop application with the accessibility of a web server to create a seamless filesharing solution. Upload files through the desktop app or web interface, and share them instantly across your local network. Perfect for quick file transfers between devices without cloud dependencies or complex setup.
+Upload files through the desktop app or web interface and share them across your local network. Perfect for quick file transfers between devices without cloud dependencies or complex setup.
 
 <img width="1191" height="666" alt="image" src="https://github.com/user-attachments/assets/2f74e96c-e5cc-4bc7-bc0e-6cf34bcf22af" />
 <img width="1489" height="510" alt="image" src="https://github.com/user-attachments/assets/827b7e99-1b10-4e1e-bb6b-ab558c6769ea" />
-
-## Why LocalServerDrop?
-
-- **Privacy First**: Everything stays local.
-- **Simple Setup**: No configuration required, install and use.
-- **Cross Device Compatible**: Access from any device with a web browser or run the application which is also multiplatform (Electron).
-
-## Getting Started
-
-### Prerequisites
-
-- **Node.js**
-- **npm**
 
 ### Installation
 1. Download the installer
@@ -28,10 +15,7 @@ LocalServerDrop combines the convenience of a desktop application with the acces
 3. Follow the setup wizard
 4. Launch from Start Menu or desktop shortcut
 
-> [!TIP]
-> Run the installer as administrator to ensure proper installation and avoid permission issues.
-
-### Running with Node.js runtime (No installation)
+### Running with Node.js runtime
 
 1. **Clone the repository**
    ```bash
@@ -59,7 +43,6 @@ LocalServerDrop combines the convenience of a desktop application with the acces
 
 ### Development Mode
 
-For development with auto-reload:
 ```bash
 npm run dev
 ```
@@ -117,12 +100,9 @@ To remove later:
 Remove-NetFirewallRule -DisplayName "LocalServerDrop 8080"
 ```
 
-> [!TIP]
-> To share files across your network, replace `[YOUR-IP]` with your actual IP address. Use `ipconfig` on Windows or `ifconfig` on Mac/Linux to find your IP.
-
 ## Security Features
 
-- **Local Network Ready**: Server binds to `0.0.0.0` by default (listens on all interfaces). Use a trusted network or change binding to `127.0.0.1` to restrict to the local machine only.
+- **Local Network Ready**: Server binds to listens on all interfaces by default. Use a trusted network or change binding to `127.0.0.1` to restrict to the local machine only although that would defeat the purpose of the app
 - **Admin Token Authentication**: File deletion requires admin token
 - **Path Traversal Protection**: Prevents unauthorized file access
 > [!NOTE]
@@ -159,14 +139,8 @@ curl -X DELETE "http://127.0.0.1:8080/delete/filename.ext" \
 
 <img width="885" height="448" alt="Screenshot 2025-09-25 155349" src="https://github.com/user-attachments/assets/e4665baa-e3ea-4f74-8530-74990f74ea68" />
 
-
-> [!NOTE]
-> The server's CORS configuration specifically allows the `X-Admin-Token` header for browser console testing and external API tools. Since the token is per-session and managed by the app, delete actions should generally be performed via the Electron UI. Manual testing requires the exact token for that run.
-
 ## Troubleshooting
 
 - 403 Forbidden on delete:
    - The admin token likely doesn’t match. Restart the Electron app and try the delete again from within the app UI.
-   - If testing manually, ensure you’re sending the correct `X-Admin-Token` for the current session.
-- CSS not applying after clone:
-   - Run `npm run buildcss` to generate `renderer/css/output.css` (it is not tracked in git).
+   - Ensure you’re sending the correct `X-Admin-Token` for the current session.
