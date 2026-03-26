@@ -6,9 +6,6 @@ A crossplatform Electron desktop application that will act as a local file shari
 
 Upload files through the desktop app or web interface and share them across your local network. Perfect for quick file transfers between devices without cloud dependencies or complex setup.
 
-<img width="1191" height="666" alt="image" src="https://github.com/user-attachments/assets/2f74e96c-e5cc-4bc7-bc0e-6cf34bcf22af" />
-<img width="1489" height="510" alt="image" src="https://github.com/user-attachments/assets/827b7e99-1b10-4e1e-bb6b-ab558c6769ea" />
-
 ### Installation
 1. Download the installer
 2. Run as administrator (for proper installation)
